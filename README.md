@@ -2,6 +2,8 @@
 
 ### Examples with Drawer, Native Stack, Bottom Tabs and Typescript
 
+https://github.com/stelmakhivan/react-native-29-01-2023-react-navigation/assets/28428836/08ca27d5-0e11-4d71-a483-1119a81e684a
+
 ## Setup project
 
 ```shell

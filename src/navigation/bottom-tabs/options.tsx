@@ -12,9 +12,6 @@ export const tabScreenOptions: TabScreenOptions = ({ route }) => {
     tabBarInactiveTintColor: 'gray',
     tabBarIcon: ({ color, size, focused }) => {
       let iconName: ComponentProps<typeof Ionicons>['name'] = 'alert';
-      if (routeName === 'Explore') {
-        iconName = focused ? 'home' : 'home-outline';
-      }
 
       switch (routeName) {
         case 'Explore': {

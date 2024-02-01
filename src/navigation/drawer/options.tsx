@@ -1,8 +1,8 @@
-import { DrawerScreenOptions } from './types';
+import { Drawer } from 'expo-router/drawer';
+import { ComponentProps } from 'react';
 
-export const drawerScreenOptions: DrawerScreenOptions = {
+export const drawerScreenOptions: ComponentProps<
+  typeof Drawer
+>['screenOptions'] = {
   headerShown: false,
-};
-export const settingsScreenOptions: DrawerScreenOptions = {
-  title: 'Settings',
 };

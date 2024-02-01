@@ -1,5 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useRouter } from 'expo-router';
 import { FC } from 'react';
 import {
   Text,
@@ -11,17 +10,13 @@ import {
 } from 'react-native';
 
 import { Apartment } from '@/constants';
-import { HomeStackParamList } from '@/navigation/native-stack/types';
 
 const ApartmentCard: FC<Apartment> = ({ name, image, price }) => {
   const isDark = useColorScheme() === 'dark';
-  const navigation =
-    useNavigation<NativeStackNavigationProp<HomeStackParamList>>();
+  const router = useRouter();
 
   const handlePress = () => {
-    navigation.navigate('ApartmentScreen', {
-      item: { name, image, price },
-    });
+    router.push(`/(drawer)/(stack)/apartment/${name}`);
   };
 
   return (

@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { ExploreScreen };
+export default ExploreScreen;

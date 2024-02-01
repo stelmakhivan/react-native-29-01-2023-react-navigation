@@ -1,12 +1,11 @@
 import { Entypo } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { Pressable, StyleSheet, useColorScheme } from 'react-native';
-
-import { TabsGroupProps } from '@/navigation/bottom-tabs/types';
 
 export const ExploreHeaderLeft = () => {
   const isDark = useColorScheme() === 'dark';
-  const navigation = useNavigation<TabsGroupProps['navigation']>();
+  const navigation = useNavigation<DrawerNavigationProp<ParamListBase>>();
 
   return (
     <Pressable onPress={navigation.openDrawer} style={styles.container}>

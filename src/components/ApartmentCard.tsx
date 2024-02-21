@@ -15,6 +15,9 @@ const ApartmentCard: FC<Apartment> = ({ name, image, price }) => {
   const isDark = useColorScheme() === 'dark';
   const router = useRouter();
 
+  console.log(isDark);
+  console.log('color scheme is', useColorScheme());
+
   const handlePress = () => {
     router.push(`/(drawer)/(stack)/apartment/${name}`);
   };
@@ -25,13 +28,21 @@ const ApartmentCard: FC<Apartment> = ({ name, image, price }) => {
         styles.container,
         { backgroundColor: isDark ? '#767676' : '#e8e8e8' },
       ]}
-      onPress={handlePress}>
+      onPress={handlePress}
+      testID="apartment-card-button">
       <Image source={{ uri: image }} style={styles.image} />
       <View style={styles.footer}>
-        <Text style={[styles.name, { color: isDark ? 'white' : '#000' }]}>
+        <Text
+          style={[styles.name, { color: isDark ? 'white' : '#000' }]}
+          testID="apartment-card-name">
           {name}
         </Text>
-        <Text style={[styles.price, { color: isDark ? '#8cf16d' : 'green' }]}>
+        <Text
+          style={[
+            styles.price,
+            { color: isDark ? '#8cf16d' : 'green' },
+          ]}
+          testID="apartment-card-name">
           Price: ${price}
         </Text>
       </View>

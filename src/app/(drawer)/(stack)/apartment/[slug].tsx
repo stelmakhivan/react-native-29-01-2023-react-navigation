@@ -1,4 +1,7 @@
-import { ParamListBase, useNavigation } from '@react-navigation/native';
+import {
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useLocalSearchParams } from 'expo-router';
 import { useLayoutEffect } from 'react';
@@ -9,7 +12,8 @@ import { APARTMENT_DATA } from '@/constants';
 
 const ApartmentScreen = () => {
   const isDark = useColorScheme() === 'dark';
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+  const navigation =
+    useNavigation<StackNavigationProp<ParamListBase>>();
 
   const { slug } = useLocalSearchParams<{ slug: string }>();
 

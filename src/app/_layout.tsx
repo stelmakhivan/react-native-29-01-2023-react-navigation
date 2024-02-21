@@ -7,8 +7,10 @@ import { Drawer } from 'expo-router/drawer';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, useColorScheme } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Provider } from 'react-redux';
 
 import { drawerScreenOptions } from '@/navigation/drawer/options';
+import { store } from '@/store';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -28,25 +30,27 @@ export const unstable_settings = {
 export default function Layout() {
   const isDark = useColorScheme() === 'dark';
   return (
-    <ThemeProvider value={isDark ? DarkTheme : DefaultTheme}>
-      <StatusBar style="auto" />
-      <GestureHandlerRootView style={styles.container}>
-        <Drawer screenOptions={drawerScreenOptions}>
-          <Drawer.Screen
-            name="(drawer)/(stack)"
-            options={{
-              drawerLabel: 'Home',
-            }}
-          />
-          <Drawer.Screen
-            name="(drawer)/settings"
-            options={{
-              drawerLabel: 'Settings',
-            }}
-          />
-        </Drawer>
-      </GestureHandlerRootView>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider value={isDark ? DarkTheme : DefaultTheme}>
+        <StatusBar style="auto" />
+        <GestureHandlerRootView style={styles.container}>
+          <Drawer screenOptions={drawerScreenOptions}>
+            <Drawer.Screen
+              name="(drawer)/(stack)"
+              options={{
+                drawerLabel: 'Home',
+              }}
+            />
+            <Drawer.Screen
+              name="(drawer)/settings"
+              options={{
+                drawerLabel: 'Settings',
+              }}
+            />
+          </Drawer>
+        </GestureHandlerRootView>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

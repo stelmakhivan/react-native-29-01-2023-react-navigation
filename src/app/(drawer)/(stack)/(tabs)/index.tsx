@@ -1,4 +1,9 @@
-import { Text, StyleSheet, ScrollView, useColorScheme } from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  ScrollView,
+  useColorScheme,
+} from 'react-native';
 
 import { ApartmentCard } from '@/components/ApartmentCard';
 import { APARTMENT_DATA } from '@/constants';

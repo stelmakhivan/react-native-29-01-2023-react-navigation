@@ -8,7 +8,7 @@ const config: ExpoConfig = {
   slug: 'navigation',
   version: '1.0.0',
   orientation: 'portrait',
-  icon: './assets/icon.png',
+  icon: './assets/app-icon.png',
   userInterfaceStyle: 'automatic',
   splash: {
     image: './assets/splash.png',
@@ -18,12 +18,14 @@ const config: ExpoConfig = {
   assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: true,
+    bundleIdentifier: 'com.stelmakhivan.navigation',
   },
   android: {
     adaptiveIcon: {
-      foregroundImage: './assets/adaptive-icon.png',
+      foregroundImage: './assets/app-icon.png',
       backgroundColor: '#ffffff',
     },
+    package: 'com.stelmakhivan.navigation',
   },
   web: {
     favicon: './assets/favicon.png',

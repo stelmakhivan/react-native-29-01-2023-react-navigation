@@ -1,4 +1,5 @@
 import { useScrollToTop } from '@react-navigation/native';
+import { useRouter } from 'expo-router';
 import { useRef } from 'react';
 import {
   Text,
@@ -6,6 +7,7 @@ import {
   FlatList,
   ListRenderItem,
   useColorScheme,
+  TouchableOpacity,
 } from 'react-native';
 
 import { ApartmentCard } from '@/components';
@@ -17,6 +19,8 @@ const renderItem: ListRenderItem<Apartment> = ({ item }) => (
 const ApartmentsScreen = () => {
   const isDark = useColorScheme() === 'dark';
 
+  const router = useRouter();
+
   const ref = useRef<FlatList>(null);
 
   useScrollToTop(ref);
@@ -26,11 +30,18 @@ const ApartmentsScreen = () => {
     { color: isDark ? '#fff' : '#000' },
   ];
 
+  const handlePress = () => {
+    console.log('pressed');
+    router.push('/animated-header');
+  };
+
   return (
     <FlatList
       ref={ref}
       ListHeaderComponent={
-        <Text style={screenTitleStyle}>Apartments Screen</Text>
+        <TouchableOpacity onPress={handlePress}>
+          <Text style={screenTitleStyle}>Apartments Screen</Text>
+        </TouchableOpacity>
       }
       data={APARTMENT_DATA}
       renderItem={renderItem}
